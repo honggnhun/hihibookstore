@@ -1,0 +1,61 @@
+﻿@model Sach01.Models.GioHang
+
+@{
+    ViewBag.Title = "HienThiGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giỏ hàng của bạn</h2>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên sách</th>
+                <th>Hình ảnh</th>
+                <th>Giá tiền</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Items)
+            {
+                double tong = Convert.ToDouble(item._sach.UnitGia.Value * item._soluong);
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item._sach.TenSach)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item._sach.HinhAnh)" style="width:100px;height:100px;"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item._sach.UnitGia)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("CapNhatSoLuongGH", "GioMuaHang"))
+                        {
+                            <input type="hidden" value="@item._sach.IdSach" name="IdSach" />
+                            <input type="number" value="@item._soluong" name="SoLuong" />
+                            <input type="submit" value="Cập nhật số lượng" />
+                        }
+                    </td>
+                    <td>
+                        @tong
+                    </td>
+                    <td>
+                        <a href="/GioMuaHang/XoaGioHang/@item._sach.IdSach">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align:right"><h4>Tổng tiền: @Model.TongTien() VNĐ</h4></td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="@Url.Action("Index", "Home")">Tiếp tục mua hàng</a>
+}    

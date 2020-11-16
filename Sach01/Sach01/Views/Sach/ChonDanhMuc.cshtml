@@ -1,0 +1,3 @@
+﻿@model Sach01.Models.DanhMuc
+@Html.DropDownListFor(model => model.IdDanhMuc, new SelectList(Model.DSDanhMuc,
+    "IdDanhMuc", "TenDanhMuc", "--Select--"))

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Sach01.Models.Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div style="text-align:center">
+    @using (Html.BeginForm("Index", "Sach"))
+    {
+        <b>Search by: </b>@Html.RadioButton("searchBy", "TenSach")<text>Tên Sách</text>
+        @Html.RadioButton("searchBy", "Available")<text>Available</text>
+        @Html.RadioButton("searchBy", "None", true)<text>None</text><br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdDanhMuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTacGia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Available)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdDanhMuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTacGia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdSach }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdSach }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdSach })
+        </td>
+    </tr>
+}
+
+</table>

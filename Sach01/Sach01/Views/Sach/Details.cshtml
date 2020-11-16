@@ -1,0 +1,99 @@
+﻿@model Sach01.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.HinhAnh)" style="height:200px;width:200px; margin:10px;"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDanhMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTacGia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

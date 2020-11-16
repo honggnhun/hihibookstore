@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sach01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="IdAdmin" />
+    </Key>
+    <Property Name="IdAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT_AD" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Email_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ChiTietMuaHang">
+    <Key>
+      <PropertyRef Name="IdCTMH" />
+    </Key>
+    <Property Name="IdCTMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMuaHang" Type="Int32" />
+    <Property Name="IdSach" Type="Int32" />
+    <Property Name="UnitGiaSale" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="MuaHang" Relationship="Self.FK__ChiTietMu__IdMua__25869641" FromRole="ChiTietMuaHang" ToRole="MuaHang" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK__ChiTietMu__IdSac__267ABA7A" FromRole="ChiTietMuaHang" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="IdDanhMuc" />
+    </Key>
+    <Property Name="IdDanhMuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDanhMuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK__Sach__IdDanhMuc__1FCDBCEB" FromRole="DanhMuc" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="SDT_KH" />
+    </Key>
+    <Property Name="IdKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email_KH" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi_KH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SDT_KH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MuaHangs" Relationship="Self.FK__MuaHang__SDT_KH__117F9D94" FromRole="KhachHang" ToRole="MuaHang" />
+  </EntityType>
+  <EntityType Name="MuaHang">
+    <Key>
+      <PropertyRef Name="IdMuaHang" />
+    </Key>
+    <Property Name="IdMuaHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" />
+    <Property Name="NgayMua" Type="DateTime" Precision="0" />
+    <Property Name="SDT_KH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietMuaHangs" Relationship="Self.FK__ChiTietMu__IdMua__25869641" FromRole="MuaHang" ToRole="ChiTietMuaHang" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK__MuaHang__SDT_KH__117F9D94" FromRole="MuaHang" ToRole="KhachHang" />
+    <NavigationProperty Name="User" Relationship="Self.FK__MuaHang__IdUser__108B795B" FromRole="MuaHang" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="IdSach" />
+    </Key>
+    <Property Name="IdSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitGia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="HinhAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTao" Type="DateTime" Precision="0" />
+    <Property Name="Available" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdDanhMuc" Type="Int32" />
+    <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="IdTacGia" Type="Int32" />
+    <NavigationProperty Name="ChiTietMuaHangs" Relationship="Self.FK__ChiTietMu__IdSac__267ABA7A" FromRole="Sach" ToRole="ChiTietMuaHang" />
+    <NavigationProperty Name="DanhMuc" Relationship="Self.FK__Sach__IdDanhMuc__1FCDBCEB" FromRole="Sach" ToRole="DanhMuc" />
+    <NavigationProperty Name="TacGia" Relationship="Self.FK__Sach__IdTacGia__20C1E124" FromRole="Sach" ToRole="TacGia" />
+  </EntityType>
+  <EntityType Name="TacGia">
+    <Key>
+      <PropertyRef Name="IdTacGia" />
+    </Key>
+    <Property Name="IdTacGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK__Sach__IdTacGia__20C1E124" FromRole="TacGia" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenCuoi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MuaHangs" Relationship="Self.FK__MuaHang__IdUser__108B795B" FromRole="Users" ToRole="MuaHang" />
+  </EntityType>
+  <Association Name="FK__ChiTietMu__IdMua__25869641">
+    <End Role="MuaHang" Type="Self.MuaHang" Multiplicity="0..1" />
+    <End Role="ChiTietMuaHang" Type="Self.ChiTietMuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MuaHang">
+        <PropertyRef Name="IdMuaHang" />
+      </Principal>
+      <Dependent Role="ChiTietMuaHang">
+        <PropertyRef Name="IdMuaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietMu__IdSac__267ABA7A">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="0..1" />
+    <End Role="ChiTietMuaHang" Type="Self.ChiTietMuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="IdSach" />
+      </Principal>
+      <Dependent Role="ChiTietMuaHang">
+        <PropertyRef Name="IdSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__IdDanhMuc__1FCDBCEB">
+    <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="0..1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhMuc">
+        <PropertyRef Name="IdDanhMuc" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="IdDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MuaHang__SDT_KH__117F9D94">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="MuaHang" Type="Self.MuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="SDT_KH" />
+      </Principal>
+      <Dependent Role="MuaHang">
+        <PropertyRef Name="SDT_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MuaHang__IdUser__108B795B">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="MuaHang" Type="Self.MuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="MuaHang">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__IdTacGia__20C1E124">
+    <End Role="TacGia" Type="Self.TacGia" Multiplicity="0..1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TacGia">
+        <PropertyRef Name="IdTacGia" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="IdTacGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Sach01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="ChiTietMuaHangs" EntityType="Self.ChiTietMuaHang" />
+    <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="MuaHangs" EntityType="Self.MuaHang" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <EntitySet Name="TacGias" EntityType="Self.TacGia" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__ChiTietMu__IdMua__25869641" Association="Self.FK__ChiTietMu__IdMua__25869641">
+      <End Role="MuaHang" EntitySet="MuaHangs" />
+      <End Role="ChiTietMuaHang" EntitySet="ChiTietMuaHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietMu__IdSac__267ABA7A" Association="Self.FK__ChiTietMu__IdSac__267ABA7A">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="ChiTietMuaHang" EntitySet="ChiTietMuaHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__IdDanhMuc__1FCDBCEB" Association="Self.FK__Sach__IdDanhMuc__1FCDBCEB">
+      <End Role="DanhMuc" EntitySet="DanhMucs" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MuaHang__SDT_KH__117F9D94" Association="Self.FK__MuaHang__SDT_KH__117F9D94">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="MuaHang" EntitySet="MuaHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MuaHang__IdUser__108B795B" Association="Self.FK__MuaHang__IdUser__108B795B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MuaHang" EntitySet="MuaHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__IdTacGia__20C1E124" Association="Self.FK__Sach__IdTacGia__20C1E124">
+      <End Role="TacGia" EntitySet="TacGias" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

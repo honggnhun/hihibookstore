@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Sach01ModelStoreContainer" CdmEntityContainer="Sach01Entities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Sach01Model.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+          <ScalarProperty Name="TenAdmin" ColumnName="TenAdmin" />
+          <ScalarProperty Name="SDT_AD" ColumnName="SDT_AD" />
+          <ScalarProperty Name="Email_AD" ColumnName="Email_AD" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietMuaHangs">
+      <EntityTypeMapping TypeName="Sach01Model.ChiTietMuaHang">
+        <MappingFragment StoreEntitySet="ChiTietMuaHang">
+          <ScalarProperty Name="IdCTMH" ColumnName="IdCTMH" />
+          <ScalarProperty Name="IdMuaHang" ColumnName="IdMuaHang" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+          <ScalarProperty Name="UnitGiaSale" ColumnName="UnitGiaSale" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="Sach01Model.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="IdDanhMuc" ColumnName="IdDanhMuc" />
+          <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="Sach01Model.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="IdKH" ColumnName="IdKH" />
+          <ScalarProperty Name="Email_KH" ColumnName="Email_KH" />
+          <ScalarProperty Name="DiaChi_KH" ColumnName="DiaChi_KH" />
+          <ScalarProperty Name="SDT_KH" ColumnName="SDT_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MuaHangs">
+      <EntityTypeMapping TypeName="Sach01Model.MuaHang">
+        <MappingFragment StoreEntitySet="MuaHang">
+          <ScalarProperty Name="IdMuaHang" ColumnName="IdMuaHang" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="NgayMua" ColumnName="NgayMua" />
+          <ScalarProperty Name="SDT_KH" ColumnName="SDT_KH" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saches">
+      <EntityTypeMapping TypeName="Sach01Model.Sach">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="UnitGia" ColumnName="UnitGia" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+          <ScalarProperty Name="IdDanhMuc" ColumnName="IdDanhMuc" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="IdTacGia" ColumnName="IdTacGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TacGias">
+      <EntityTypeMapping TypeName="Sach01Model.TacGia">
+        <MappingFragment StoreEntitySet="TacGia">
+          <ScalarProperty Name="IdTacGia" ColumnName="IdTacGia" />
+          <ScalarProperty Name="TenTacGia" ColumnName="TenTacGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Sach01Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="TenDau" ColumnName="TenDau" />
+          <ScalarProperty Name="TenCuoi" ColumnName="TenCuoi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

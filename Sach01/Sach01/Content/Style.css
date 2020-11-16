@@ -1,0 +1,70 @@
+﻿body {
+    background-color: #ffffff;
+}
+
+.navbar-default .navbar-collapse {
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    background-color: #ffffff;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+#form-register {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+}
+
+#form-login {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+}
+
+table {
+    width: 500px;
+}
+
+.title-form {
+    text-align: center;
+    font-size: 30px;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {
+    height: 1500px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #ffffff;
+    color: white;
+    padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+
+    .row.content {
+        height: auto;
+    }
+}

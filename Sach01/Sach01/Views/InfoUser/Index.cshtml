@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h2>Chúc mừng</h2>
+        <h3>Email: @Session["Email"].ToString()</h3>
+        <p>Login thành công</p>
+        <a class="btn btn-warning" href="@Url.Action("Logout","Login")">Log Out</a>
+    </div>
+</body>
+</html>
